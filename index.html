@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Explore Apple products, including Mac, iPhone, iPad, Apple Watch, AirPods and more."
+    />
+    <meta name="author" content="Tesema Heyii" />
+
+    <title>Apple - Mac, iPhone, iPad, Apple Watch and More</title>
+    <link rel="stylesheet" href="./Css/styles.css" />
+    <script src="./js/main.js" defer></script>
+  </head>
+
+  <body>
+    <!-- ========================================
+         GLOBAL HEADER
+    ========================================= -->
+    <header class="site-header">
+  <div class="container">
+    <nav class="global-navigation" aria-label="Main navigation">
+
+      <!-- Brand -->
+      <a
+        class="global-navigation__brand"
+        href="/"
+        aria-label="Apple homepage"
+      >
+        <img src="./Images/Icon/logo.png" alt="" />
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        class="global-navigation__toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="global-navigation-list"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navigation links -->
+      <ul
+        class="global-navigation__list"
+        id="global-navigation-list"
+      >
+        <li class="global-navigation__item">
+          <a class="global-navigation__link" href="/mac/">Mac</a>
+        </li>
+
+        <li class="global-navigation__item">
+          <a class="global-navigation__link" href="/iphone/">iPhone</a>
+        </li>
+
+        <li class="global-navigation__item">
+          <a class="global-navigation__link" href="/ipad/">iPad</a>
+        </li>
+
+        <li class="global-navigation__item">
+          <a class="global-navigation__link" href="/watch/">Watch</a>
+        </li>
+
+        <li class="global-navigation__item">
+          <a class="global-navigation__link" href="/tv/">TV</a>
+        </li>
+
+        <li class="global-navigation__item">
+          <a class="global-navigation__link" href="/music/">Music</a>
+        </li>
+
+        <li class="global-navigation__item">
+          <a class="global-navigation__link" href="/support/">Support</a>
+        </li>
+
+        <li class="global-navigation__item global-navigation__item--search">
+          <a
+            class="global-navigation__link"
+            href="/search/"
+            aria-label="Search"
+          >
+            <img src="./Images/Icon/search-icon.png" alt="" />
+          </a>
+        </li>
+
+        <li class="global-navigation__item global-navigation__item--cart">
+          <a
+            class="global-navigation__link"
+            href="/cart/"
+            aria-label="Shopping bag"
+          >
+            <img src="./Images/Icon/cart.png" alt="" />
+          </a>
+        </li>
+      </ul>
+
+    </nav>
+  </div>
+</header>
+
+    <!-- ========================================
+         MAIN CONTENT
+    ========================================= -->
+    <main id="main-content" class="site-content">
+      <!-- ======================================
+           HERO 01: MACBOOK PRO
+      ======================================= -->
+      <section class="hero hero--macbook" aria-labelledby="macbook-hero-title">
+        <div class="hero__content">
+          <p class="hero__eyebrow">16-inch model</p>
+
+          <h2 id="macbook-hero-title" class="hero__title">MacBook Pro</h2>
+
+          <p class="hero__description">The best for the brightest.</p>
+
+          <div class="hero__actions">
+            <a href="/macbook-pro/" class="hero__link">Learn more</a>
+            <a href="/shop/macbook-pro/" class="hero__link">Buy</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================
+           HERO 02: IPHONE 11 PRO
+      ======================================= -->
+      <section class="hero hero--iphone-pro" aria-labelledby="iphone-pro-title">
+        <div class="hero__content">
+          <h2 id="iphone-pro-title" class="hero__title">iPhone 11 Pro</h2>
+
+          <p class="hero__description">
+            Pro cameras. Pro display. Pro performance.
+          </p>
+
+          <p class="hero__price">From $24.95/mo. or $599 with trade-in.</p>
+
+          <div class="hero__actions">
+            <a href="/iphone-11-pro/" class="hero__link">Learn more</a>
+            <a href="/shop/iphone-11-pro/" class="hero__link">Buy</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================
+           HERO 03: IPHONE 11
+      ======================================= -->
+      <section class="hero hero--iphone" aria-labelledby="iphone-title">
+        <div class="hero__content">
+          <h2 id="iphone-title" class="hero__title">iPhone 11</h2>
+
+          <p class="hero__description">Just the right amount of everything.</p>
+
+          <p class="hero__price">From $16.62/mo. or $399 with trade-in.</p>
+
+          <div class="hero__actions">
+            <a href="/iphone-11/" class="hero__link">Learn more</a>
+            <a href="/shop/iphone-11/" class="hero__link">Buy</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================
+           PROMOTION GRID 01: WATCH AND APPLE CARD
+      ======================================= -->
+      <section
+        class="promotion-grid"
+        aria-label="Apple Watch and Apple Card promotions"
+      >
+        <!-- Apple Watch -->
+        <article class="promotion-card promotion-card--watch">
+          <div class="promotion-card__content">
+            <div class="promotion-card__description">
+              <p>With the new Always-On Retina display.</p>
+
+              <p>You've never seen a watch like this.</p>
+
+              <div class="promotion-card__actions">
+                <a href="/watch/" class="promotion-card__link"> Learn more </a>
+
+                <a href="/shop/watch/" class="promotion-card__link"> Buy </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Apple Card -->
+        <article class="promotion-card promotion-card--card">
+          <div class="promotion-card__content">
+            <p class="promotion-card__description">
+              Get 3% Daily Cash on purchases from Apple using Apple Card.
+            </p>
+
+            <div class="promotion-card__actions">
+              <a href="/apple-card/" class="promotion-card__link">
+                Learn more
+              </a>
+
+              <a href="/shop/apple-card/" class="promotion-card__link"> Buy </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ======================================
+           PROMOTION GRID 02: APPLE TV+ AND AIRPODS PRO
+      ======================================= -->
+      <section
+        class="promotion-grid"
+        aria-label="Apple TV Plus and AirPods Pro promotions"
+      >
+        <!-- Apple TV+ -->
+        <article class="promotion-card promotion-card--tv">
+          <figure class="promotion-card__brand">
+            <img
+              src="./Images/Icon/apple-tv-logo.png"
+              alt="Apple TV Plus"
+              decoding="async"
+            />
+          </figure>
+
+          <div class="promotion-card__actions">
+            <a href="/tv/" class="promotion-card__link"> Watch the trailer </a>
+          </div>
+        </article>
+
+        <!-- AirPods Pro -->
+        <article class="promotion-card promotion-card--airpods">
+          <div class="promotion-card__content">
+            <h2 class="promotion-card__title">AirPods Pro</h2>
+
+            <p class="promotion-card__description">
+              Magic like you've never heard.
+            </p>
+
+            <div class="promotion-card__actions">
+              <a href="/airpods-pro/" class="promotion-card__link">
+                Learn more
+              </a>
+
+              <a href="/shop/airpods-pro/" class="promotion-card__link">
+                Buy
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ======================================
+           PROMOTION GRID 03: MACBOOK PRO AND IPAD
+      ======================================= -->
+      <section
+        class="promotion-grid"
+        aria-label="MacBook Pro and iPad promotions"
+      >
+        <!-- MacBook Pro -->
+        <article class="promotion-card promotion-card--macbook">
+          <div class="promotion-card__content">
+            <p class="promotion-card__eyebrow">16-inch model</p>
+
+            <h2 class="promotion-card__title">MacBook Pro</h2>
+
+            <p class="promotion-card__description">
+              The best for the brightest.
+            </p>
+
+            <div class="promotion-card__actions">
+              <a href="/macbook-pro/" class="promotion-card__link">
+                Learn more
+              </a>
+
+              <a href="/shop/macbook-pro/" class="promotion-card__link">
+                Buy
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- iPad -->
+        <article class="promotion-card promotion-card--ipad">
+          <div class="promotion-card__content">
+            <figure class="promotion-card__brand">
+              <img
+                src="Images/Icon/new-ipad-logo.png"
+                alt="iPad"
+                decoding="async"
+              />
+            </figure>
+
+            <p class="promotion-card__description">
+              Like a computer. Unlike any computer.
+            </p>
+
+            <div class="promotion-card__actions">
+              <a href="/ipad/" class="promotion-card__link"> Learn more </a>
+
+              <a href="/shop/ipad/" class="promotion-card__link"> Buy </a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- ========================================
+         GLOBAL FOOTER
+    ========================================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <!-- ======================================
+             LEGAL AND PROMOTIONAL INFORMATION
+        ======================================= -->
+        <section
+          class="footer-disclaimer"
+          aria-label="Promotional terms and conditions"
+        >
+          <ol class="footer-disclaimer__list">
+            <li class="footer-disclaimer__item">
+              Trade In: Trade-in values vary. iPhone 11 and iPhone 11 Pro
+              promotional pricing is after trade-in of iPhone 8 Plus and iPhone
+              X in good condition. Additional trade-in values require purchase
+              of a new iPhone, subject to availability and limits. Must be at
+              least 18. Apple or its trade-in partners reserve the right to
+              refuse or limit any Trade In transaction for any reason. In-store
+              trade-in requires presentation of a valid, government-issued photo
+              ID (local law may require saving this information). Sales tax may
+              be assessed on full value of new iPhone. Additional terms from
+              Apple or Apple's trade-in partners may apply. Monthly pricing:
+              Available to qualified customers and requires 0% APR, 24-month
+              installment loan with Citizens One, and iPhone activation with
+              AT&T, Sprint, T-Mobile, or Verizon.
+              <a href="/legal/sales-support/">Full terms apply.</a>
+            </li>
+          </ol>
+        </section>
+
+        <!-- ======================================
+             FOOTER NAVIGATION
+        ======================================= -->
+        <nav class="footer-navigation" aria-label="Footer navigation">
+          <div class="footer-navigation__grid">
+            <!-- Shop and Learn -->
+            <section
+              class="footer-navigation__group"
+              aria-labelledby="footer-shop-heading"
+            >
+              <h3 id="footer-shop-heading" class="footer-navigation__heading">
+                Shop and Learn
+              </h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/mac/">Mac</a></li>
+                <li><a href="/ipad/">iPad</a></li>
+                <li><a href="/iphone/">iPhone</a></li>
+                <li><a href="/watch/">Watch</a></li>
+                <li><a href="/tv/">TV</a></li>
+                <li><a href="/music/">Music</a></li>
+                <li><a href="/airpods/">AirPods</a></li>
+                <li><a href="/homepods/">HomePod</a></li>
+                <li><a href="/ipod-touch/">iPod touch</a></li>
+                <li><a href="/accessories/">Accessories</a></li>
+                <li><a href="/gift-cards/">Gift Cards</a></li>
+              </ul>
+            </section>
+
+            <!-- Services and Account -->
+            <section
+              class="footer-navigation__group"
+              aria-labelledby="footer-services-heading"
+            >
+              <h3
+                id="footer-services-heading"
+                class="footer-navigation__heading"
+              >
+                Services
+              </h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/apple-music/">Apple Music</a></li>
+                <li><a href="/apple-news/">Apple News</a></li>
+                <li><a href="/apple-tv/">Apple TV+</a></li>
+                <li><a href="/apple-arcade/">Apple Arcade</a></li>
+                <li><a href="/apple-card/">Apple Card</a></li>
+                <li><a href="/icloud/">iCloud</a></li>
+              </ul>
+
+              <h3 class="footer-navigation__subheading">Account</h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/account/">Manage Your Apple ID</a></li>
+                <li><a href="/account/">Apple Store Account</a></li>
+                <li><a href="/icloud/">iCloud.com</a></li>
+              </ul>
+            </section>
+
+            <!-- Apple Store -->
+            <section
+              class="footer-navigation__group"
+              aria-labelledby="footer-store-heading"
+            >
+              <h3 id="footer-store-heading" class="footer-navigation__heading">
+                Apple Store
+              </h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/retail/">Find a Store</a></li>
+                <li><a href="/retail/geniusbar/">Genius Bar</a></li>
+                <li><a href="/today/">Today at Apple</a></li>
+                <li><a href="/apple-camp/">Apple Camp</a></li>
+                <li><a href="/field-trip/">Field Trip</a></li>
+                <li><a href="/apple-store-app/">Apple Store App</a></li>
+                <li>
+                  <a href="/shop/refurbished/"> Refurbished and Clearance </a>
+                </li>
+                <li><a href="/shop/financing/">Financing</a></li>
+                <li><a href="/shop/trade-in/">Apple Trade In</a></li>
+                <li><a href="/shop/order-status/">Order Status</a></li>
+                <li><a href="/shop/help/">Shopping Help</a></li>
+              </ul>
+            </section>
+
+            <!-- Business, Education, Healthcare and Government -->
+            <section
+              class="footer-navigation__group"
+              aria-labelledby="footer-business-heading"
+            >
+              <h3
+                id="footer-business-heading"
+                class="footer-navigation__heading"
+              >
+                Business
+              </h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/business/">Apple and Business</a></li>
+                <li><a href="/business/shop/">Shop for Business</a></li>
+              </ul>
+
+              <h3 class="footer-navigation__subheading">For Education</h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/education/">Apple and Education</a></li>
+                <li><a href="/education/shop/">Shop for College</a></li>
+              </ul>
+
+              <h3 class="footer-navigation__subheading">For Healthcare</h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/healthcare/">Apple in Healthcare</a></li>
+                <li><a href="/healthcare/">Health on Apple Watch</a></li>
+              </ul>
+
+              <h3 class="footer-navigation__subheading">For Government</h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/government/">Apple and Government</a></li>
+                <li><a href="/government/shop/">Shop for Government</a></li>
+              </ul>
+            </section>
+
+            <!-- Apple Values and About Apple -->
+            <section
+              class="footer-navigation__group"
+              aria-labelledby="footer-values-heading"
+            >
+              <h3 id="footer-values-heading" class="footer-navigation__heading">
+                Apple Values
+              </h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/accessibility/">Accessibility</a></li>
+                <li><a href="/education/">Education</a></li>
+                <li><a href="/environment/">Environment</a></li>
+                <li><a href="/inclusion/">Inclusion and Diversity</a></li>
+                <li><a href="/privacy/">Privacy</a></li>
+                <li>
+                  <a href="/supplier-responsibility/">
+                    Supplier Responsibility
+                  </a>
+                </li>
+              </ul>
+
+              <h3 class="footer-navigation__subheading">About Apple</h3>
+
+              <ul class="footer-navigation__list">
+                <li><a href="/newsroom/">Newsroom</a></li>
+                <li><a href="/leadership/">Apple Leadership</a></li>
+                <li><a href="/careers/">Career Opportunities</a></li>
+                <li><a href="/investor/">Investors</a></li>
+                <li><a href="/apple-events/">Events</a></li>
+                <li><a href="/contact/">Contact Apple</a></li>
+              </ul>
+            </section>
+          </div>
+        </nav>
+
+        <!-- ======================================
+             SHOPPING INFORMATION
+        ======================================= -->
+        <section
+          class="footer-shipping"
+          aria-label="Additional shopping information"
+        >
+          <p class="footer-shopping__text">
+            More ways to shop:
+            <a href="/retail/">Find an Apple Store</a>
+            or
+            <a href="/retail/">other retailer</a>
+            near you. Or call 1-800-MY-Apple.
+          </p>
+        </section>
+
+        <!-- ======================================
+             FOOTER BOTTOM
+        ======================================= -->
+        <div class="footer-bottom">
+          <!-- Copyright -->
+          <p class="footer-bottom__copyright">
+            2019 Apple Inc. All rights reserved.
+          </p>
+
+          <!-- Legal navigation -->
+          <nav class="footer-legal-navigation" aria-label="Legal information">
+            <ul class="footer-legal-navigation__list">
+              <li><a href="/legal/privacy/">Privacy Policy</a></li>
+              <li><a href="/legal/terms/">Terms of Use</a></li>
+              <li><a href="/legal/sales-support/">Sales and Refunds</a></li>
+              <li><a href="/legal/">Legal</a></li>
+              <li><a href="/sitemap/">Site Map</a></li>
+            </ul>
+          </nav>
+
+          <!-- Regional information -->
+          <a
+            href="/choose-country-region/"
+            class="footer-region"
+            aria-label="Choose your country or region"
+          >
+            <img
+              src="./Images/Icon/16.png"
+              alt=""
+              class="footer-region__flag"
+              width="16"
+              height="16"
+              loading="lazy"
+            />
+
+            <span class="footer-region__name"> United States </span>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

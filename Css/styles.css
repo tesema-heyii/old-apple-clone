@@ -1,0 +1,975 @@
+/* 01. DESIGN TOKENS */
+:root {
+  /* Colors */
+  --color-text: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-background: #ffffff;
+  --color-background-muted: #f5f5f7;
+  --color-link: #06c;
+  --color-border: #d2d2d7;
+
+  /* Typography */
+  --font-system:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Layout */
+  --site-max-width: 1200px;
+  --nav-max-width: 980px;
+  --page-gutter: 24px;
+
+  /* Motion */
+  --transition-fast: 180ms ease;
+}
+/* till i use it ,it is just not doing somethings just it is simly written here and when i start to use it it can start to apply to the websites  */
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body{
+    margin:0;
+    min-width: 320px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-system);
+    -webkit-font-smoothing:antialiased;
+    text-rendering: optimizeLegibility;
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+button,input,textarea,select {
+    font: inherit;
+}
+ul,ol {
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,p,figure {
+    margin: 0;
+}
+.container {
+    width: min(
+        calc(100% - (var(--page-gutter) * 2)),
+        var(--site-max-width)
+    );
+    margin-inline: auto;
+}
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: rgb(22 22 23 / 92%);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header .container {
+  width: min(
+    calc(100% - (var(--page-gutter) * 2)),
+    var(--site-max-width)
+  );
+  margin-inline: auto;
+}
+.global-navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: min(100%,var(--nav-max-width));
+    min-height: 44px;
+
+    margin-inline: auto;
+}
+.global-navigation__brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    min-width: 44px;
+    min-height: 44px;
+
+    text-decoration: none;
+}
+.global-navigation__brand img {
+    display: block;
+    width: 18px;
+    height: 22px;
+    object-fit: contain;
+}
+.global-navigation__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 44px;
+
+    list-style: none;
+}
+.global-navigation__item {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+.global-navigation__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 44px;
+    min-height: 44px;
+
+    padding-inline: 10px;
+
+    color: rgb(255 255 255 / 88%);
+
+    font-family: var(--font-system);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+
+
+    white-space: nowrap;
+    text-decoration: none;
+
+    transition: color var(--transition-fast);
+}
+.global-navigation__link:hover {
+    color: #ffffff;
+}
+.global-navigation__link:focus-visible{
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+.global-navigation__item--search img,
+.global-navigation__item--cart img {
+  display: block;
+
+  width: 18px;
+  height: 18px;
+
+  object-fit: contain;
+}
+
+
+/* Mobile menu button - desktop default */
+.global-navigation__toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+.global-navigation__toggle span {
+    display: block;
+    width: 18px;
+    height: 1px;
+    background-color: currentColor;
+    transition:transform var(--transition-fast),opacity var(--transition-fast);
+}
+.global-navigation__toggle:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+
+/* Tablet and mobile navigation */
+
+/* ========================================
+   RESPONSIVE NAVIGATION
+======================================== */
+
+@media (max-width: 900px) {
+
+  /* 1. Header container spacing */
+  .site-header .container {
+    width: calc(100% - 32px);
+  }
+
+  /* 2. Navigation row */
+  .global-navigation {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  /* 3. Show the toggle only when JavaScript is available */
+  html.has-js .global-navigation__toggle {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
+  /* 4. Default mobile list: visible without JavaScript */
+  .global-navigation__list {
+    display: flex;
+    position: static;
+
+    width: 100%;
+    min-height: 0;
+
+    margin: 0;
+    padding: 8px 0 20px;
+
+    flex: initial;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  /* 5. Collapse the list when JavaScript is available */
+  html.has-js .global-navigation__list {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: -16px;
+    right: -16px;
+
+    width: auto;
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+
+    margin: 0;
+    padding: 8px 16px 20px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    background-color: rgb(22 22 23 / 98%);
+    border-top: 1px solid rgb(255 255 255 / 12%);
+  }
+
+  /* 6. Display the list in the open state */
+  html.has-js .global-navigation.is-open .global-navigation__list {
+    display: flex;
+  }
+
+  /* 7. Make each mobile item occupy the available width */
+  .global-navigation__item {
+    width: 100%;
+  }
+
+  /* 8. Make links easy to tap */
+  .global-navigation__link {
+    justify-content: flex-start;
+
+    width: 100%;
+    min-height: 48px;
+
+    padding-inline: 4px;
+
+    font-size: 17px;
+    line-height: 1.3;
+
+    border-bottom: 1px solid rgb(255 255 255 / 12%);
+  }
+
+  /* 9. Keep icon links aligned with the text links */
+  .global-navigation__item--search .global-navigation__link,
+  .global-navigation__item--cart .global-navigation__link {
+    justify-content: flex-start;
+  }
+
+  /* 10. Animate the two hamburger lines into a close icon */
+  .global-navigation.is-open .global-navigation__toggle span:first-child {
+    transform: translateY(3px) rotate(45deg);
+  }
+
+  .global-navigation.is-open .global-navigation__toggle span:last-child {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .global-navigation__link,
+  .global-navigation__toggle span {
+    transition: none;
+  }
+}
+
+
+/* Product hero section */
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  width: 100%;
+  min-height: 580px;
+  padding: 48px 24px 0;
+  overflow: hidden;
+
+  text-align: center;
+  background-color: var(--color-background-muted);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+/* keep hero text above the background artwork */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%,700px);
+  margin-inline: auto;
+}
+/* Small introductory label above the product title */
+.hero__eyebrow {
+  margin-bottom: 4px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+.hero h1 {
+  margin: 0;
+  color:var(--color-text);
+  font-size: clamp(36px, 4.2vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+/* Supporting broduct description */
+.hero p {
+  margin-top: 8px;
+  color: var(--color-text);
+  font-size: clamp(17px,2vw, 24px);
+  font-weight: 400;
+  line-height: 1.35;
+}
+/* Optional price or financing information */
+.hero__price {
+  margin-top: 8px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.4;
+}
+/* Group of hero links */
+.hero__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 14px;
+}
+/* Individual hero action links */
+.hero__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: var(--color-link);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.hero__link:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+.hero__link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.hero--macbook {
+  min-height: 580px;
+  color: var(--color-text);
+
+  background-color: #fafafa;
+  background-image: url("../Images/Home/macbook-pro.jpg");
+
+  background-size: auto 360px;
+  background-position: center bottom;
+}
+
+/* Iphone 11 hero */
+.hero--iphone-pro {
+  min-height: 580px;
+  color: #ffffff;
+  background-color: #000000;
+  background-image: url("../Images/Home/iphone11-pro-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+/* Whie text for the dark iphone Pro artwork */
+.hero--iphone-pro h2,.hero--iphone-pro p {
+  color: #ffffff;
+}
+/* Secondry text on the dark hero */
+.hero--iphone-pro .hero__eyebrow,.hero--iphone-pro .hero__price {
+  color: rgb(255 255 255 / 72%);
+}
+/* Preserve visible blue links on the dark background */
+.hero--iphone-pro .hero__link {
+  color: #2997ff;
+}
+.hero--iphone-pro .hero__link:hover {
+  color: #ffffff;
+}
+/* Iphone 11 hero */
+.hero--iphone {
+  min-height: 580px;
+  color: var(--color-text);
+  background-color: #fafafa;
+
+  background-image: url("../Images/Home/iphone11-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+/* Promotional product grid */
+.promotion-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+}
+/* Shared card structure */
+.promotion-card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  min-width: 0;
+  min-height: 580px;
+
+  padding: 44px 24px 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: var(--color-background-muted);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: auto 300px;
+}
+/* Keep card text above its background artwork */
+.promotion-card__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%,440px);
+  margin-inline:auto;
+}
+h2 {
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: clamp(28px,3vw, 40px);
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+
+
+}
+/* Card title */
+.promotion-card h2 {
+  color: var(--color-text);
+  font-size: clamp(28px,3vw, 40px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+/* Card description */
+.promotion-card p {
+  margin-top: 8px;
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+/* Card action links */
+.promotion-card__actions,.hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 12px;
+}
+.promotion-card__actions a {
+  color: var(--color-link);
+  font-size: 13px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.promotion-card__actions a:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+.promotion-card__actions a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset:4px ;
+  border-radius: 2px;
+}
+/* Apple Watch */
+.promotion-card--watch {
+  background-color: #fafafa;
+  background-image: url("../Images/Home/watch-series-5.jpg");
+  background-size: auto 310px;
+  background-position: center bottom 18px;
+}
+/* Apple card */
+.promotion-card--card {
+  background-color: #fafafa;
+  background-image: url("../Images/Home/apple-card.jpg");
+  background-size: auto;
+  background-position: center bottom 24px;
+}
+/* Apple TV+ */
+.promotion-card--tv {
+  background-color: #f5f5f5;
+  background-image: url("../Images/Home/apple-tv-background.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+/* TV content may need more vertical space above its artwork */
+.promotion-card--tv .promotion-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* AIRPODS PRP */
+.promotion-card--airpods {
+  color: #ffffff;
+
+  background-color: #000000;
+  background-image: url("../Images/Home/air-pods.jpg");
+  background-size: auto 300px;
+  background-position: center bottom 24px;
+}
+.promotion-card--airpods h2, .promotion-card--airpods p {
+  color: #ffffff;
+}
+.promotion-card--airpods .promotion-card__actions a {
+  color: #2997ff;
+}
+.promotion-card--airpods .promotion-card__actions a:hover {
+  color: #ffffff;
+}
+/* Macbook pro promotion */
+.promotion-card--macbook {
+  background-color: #fafafa;
+  background-image: url("../Images/Home/macbook-pro.jpg");
+  background-size: auto 280px;
+  background-position: center bottom 24px;
+}
+.promotion-card--ipad {
+  background-color: #fafafa;
+  background-image: url("../Images/Home/new-ipad.jpg");
+  background-size: auto 300px;
+  background-position: center bottom 24px;
+}
+
+/* The Table response layout */
+@media (max-width:900px){
+  /* large hero sections */
+  .hero{
+    min-height: 540px;
+    padding: 42px 20px 0;
+  }
+  .hero--macbook {
+    background-size: auto 330px;
+  }
+  .hero--iphone-pro, .hero--iphone {
+    background-position: center center;
+  }
+  /* Promotion cards */
+  .promotion-card {
+    min-height: 520px;
+    padding: 38px 20px 0;
+  }
+  .promotion-card--watch {
+    background-size: auto 280px;
+  }
+  .promotion-card--card {
+    background-size: auto 270px;
+  }
+  .promotion-card--airpods {
+    background-size: auto 270px;
+  }
+  .promotion-card--macbook,.promotion-card--ipad {
+    background-size: auto 260px;
+  }
+}
+
+
+
+/* Mobile responsive layout */
+@media (max-width:768px) {
+  /* Product hero sections */
+  .hero {
+    min-height: 560px;
+    padding: 36px 16px 0;
+  }
+  .hero h2 {
+    font-size: clamp(34px,8vw,46px);
+  }
+  .hero {
+    font-size: clamp(16px,4vw,20px);
+  }
+  .hero__eyebrow {
+    font-size: 12px;
+  }
+  .hero__price {
+    font-size: 12px;
+  }
+  .hero__actions {
+    gap: 18px;
+    margin-top: 12px;
+  }
+  .hero__link {
+    font-size: 13px;
+  }
+
+  /* iphone pro her artwork */
+  .hero--iphone-pro {
+    min-height: 560px;
+
+    background-size: auto 100%;
+    background-position: center center;
+  }
+
+  /* iPhone 11 hero artwork */
+  .hero--iphone {
+    min-height: 540px;
+
+    background-size: auto 100%;
+    background-position: center center;
+  }
+  /*One promotional card per row  */
+  .promotion-grid {
+    grid-template-columns: minmax(0,1fr);
+    gap: 12px;
+
+    padding: 12px;
+  }
+  .promotion-card {
+    min-height: 520px;
+    padding: 36px 16px 0;
+  }
+  .promotion-card h2 {
+    font-size: clamp(28px,7vw,36px);
+  }
+  .promotion-card p {
+    font-size: 15px;
+  }
+  .promotion-card__actions {
+    gap: 18px;
+    margin-top: 10px;
+  }
+
+  /* Promotional artwork sizes */
+  .promotion-card--watch {
+    background-size: auto 290px;
+    background-position: center bottom 16px;
+  }
+  .promotion-card--card {
+    background-size: auto 270px;
+    background-position: center bottom 20px;
+  }
+  .promotion-card--tv {
+    background-position: center center;
+  }
+  .promotion-card--airpods {
+    background-size: auto 280px;
+    background-position: center bottom 20px;
+  }
+  .promotion-card--macbook {
+    background-size: auto 270px;
+    background-position: center bottom 20px;
+  }
+  .promotion-card--ipad {
+    background-size: auto 270px;
+    background-position: center bottom 20px;
+  }
+
+}
+  /* Small phone */
+@media (max-width:480px){
+  .hero {
+    padding-inline: 12px;
+  }
+  .hero h2 {
+    font-size: 34px;
+  }
+  .hero p {
+    max-width: 320px;
+    margin-inline: auto;
+
+    font-size: 16px;
+  }
+  .hero__actions {
+    gap: 16px;
+  }
+  .hero--macbook {
+    min-height: 480px;
+    background-size: auto 240px;
+  }
+  .hero--iphone-pro {
+    min-height: 520px;
+  }
+  .hero--iphone {
+    min-height: 500px;
+  }
+  .promotion-grid {
+    gap: 10px;
+    padding: 10px;
+  }
+  .promotion-card {
+    min-height: 480px;
+    padding: 32px 12px 0;
+  }
+  .promotion-card h2 {
+    font-size: 30px;
+  }
+  .promotion-card p {
+    max-width: 300px;
+    margin-inline: auto;
+
+    font-size: 14px;
+  }
+  .promotion-card__actions {
+    gap: 14px;
+  }
+  .promotion-card--watch, .promotion-card--airpods {
+    background-size: auto 250px;
+  }
+  .promotion-card--card, .promotion-card--macbook, .promotion-card--ipad {
+    background-size: auto 230px;
+  }
+}
+/* Footer base */
+.site-footer{
+  background-color: var(--color-background-muted);
+  color: var(--color-text-secondary);
+  font-family: var(--font-system);
+  font-size: 12px;
+  line-height: 1.5;
+  padding-block: 24px;
+}
+.site-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+.site-footer a:hover{
+  color: var(--color-text);
+  text-decoration: underline;
+}
+.site-footer a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 3px;
+}
+/* Footer Disclaimer */
+.footer-disclaimer {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+.footer-disclaimer__list {
+  margin: 0;
+  padding-left: 18px;
+}
+.footer-disclaimer__item {
+  padding-left:2px ;
+}
+.footer-navigation {
+  padding-block: 20px;
+}
+.footer-navigation__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
+  column-gap: 24px;
+  row-gap: 24px;
+}
+.footer-navigation__group {
+  min-width: 0;
+}
+.footer-navigation__heading, .footer-navigation__subheading {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.footer-navigation__heading {
+  margin-bottom: 10px;
+}
+.footer-navigation__subheading {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+.footer-navigation__list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer-navigation__list a {
+  display: inline-block;
+}
+/* Shopping information and footer bottom */
+.footer-shipping {
+  padding-block: 16px;
+  border-bottom: 1px solid var(--color-border);
+
+}
+.footer-shipping__text {
+  margin: 0;
+}
+.footer-shipping__text a {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding-top: 16px;
+}
+.footer-bottom__copyright {
+  margin: 0;
+}
+.footer-legal-navigation {
+  flex: 1 1 420px;
+}
+.footer-legal-navigation__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.footer-region__flag {
+  display: block;
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+}
+.footer-region__name {
+  color: var(--color-text-secondary);
+}
+/* Footer Tablet */
+@media (max-width: 900px) {
+  .footer-navigation__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 32px;
+    row-gap: 28px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+  }
+
+  .footer-legal-navigation {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .footer-region {
+    margin-left: auto;
+  }
+}
+
+/* Footer mobile */
+@media (max-width: 600px) {
+  .site-footer {
+    padding-block: 20px;
+    font-size: 12px;
+  }
+
+  .footer-disclaimer {
+    padding-bottom: 14px;
+  }
+
+  .footer-navigation {
+    padding-block: 16px;
+  }
+
+  .footer-navigation__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 28px;
+    }
+    .footer-navigation__heading {
+      margin-bottom: 8px;
+    }
+    .footer-navigation__subheading {
+      margin-top: 16px;
+    }
+    .footer-navigation__list {
+      gap: 8px;
+    }
+    .footer-shipping {
+      padding-block: 14px;
+    }
+    .footer-bottom {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-legal-navigation {
+      flex-basis: auto;
+      order: initial;
+    }
+    .footer-legal-navigation__list {
+      gap: 8px 14px;
+    }
+    .footer-region {
+      margin-left: 0;
+    }
+  }
+
+.promotion-card__link::after, .hero__link::after {
+  content: ">";
+  color: black;
+  padding: 5px;
+  font-weight: 400;
+}
+
+
+
+
+
+
+ 
